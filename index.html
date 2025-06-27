@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dans ma bulle - Stéphanie Rabut, réflexologie et bien-être à Mauges-sur-Loire">
+  <title>Dans ma bulle - Réflexologie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #caa9e0;
+      --color-secondary: #f3c6d3;
+      --color-bg: rgba(255,255,255,0.9);
+      --color-text: #333;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Indie Flower', cursive;
+      background: var(--color-bg);
+      color: var(--color-text);
+    }
+    header {
+	  background-image: url("FOND_SITE.png");
+	  background-size: cover;
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  text-align: center;
+	  padding-top: 15rem;  
+	padding-bottom: 3rem; 
+	  position: relative;
+	  min-height: 350px;
+	}
+	
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: #4a2c5e;
+	  position: relative;     
+	  z-index: 3;
+    }
+    header p {
+      font-size: 1.1rem;
+      margin-top: .5rem;
+      text-align: center;
+	  position: relative;     
+	  z-index: 3;
+    }
+	.logo-flottant {
+	  position: absolute;
+	  top: 30px; 
+	  left: 50%;
+	  transform: translateX(-50%);
+	  width: 550px; 
+	  height: auto;
+	  z-index: 2;
+	  opacity: 0.8
+	}
+	
+    nav {
+      background: #fff;
+      padding:1rem;
+      text-align:center;
+      position: sticky;
+      top:0;
+      box-shadow:0 2px 4px rgba(0,0,0,0.1);
+      z-index:100;
+    }
+    nav a {
+      margin:0 1rem;
+      text-decoration:none;
+      color:#4a2c5e;
+      font-weight:bold;
+    }
+    section {
+      padding:3rem 1rem;
+      max-width:1000px;
+      margin:auto;
+    }
+    h2 {
+      font-family:'Playfair Display', serif;
+      font-size:1.8rem;
+      color:#4a2c5e;
+      text-align:center;
+      margin-bottom:1rem;
+    }
+    p {
+      font-size:1.1rem;
+      text-align:justify;
+      white-space:pre-line;
+      margin-bottom:1rem;
+    }
+    .intro {
+      text-align: center;
+    }
+    .intro img {
+	  width: 75%;
+	  max-width: 500px;
+	  filter: grayscale(100%);
+	  margin-bottom: 1rem;
+	  border-radius: 12px;
+	}
+	
+    .testimonials, .faq-item {
+      background: rgba(202,169,224,0.2);
+      padding:2rem;
+      border-radius:12px;
+      margin:2rem 0;
+    }
+    .testimonial {
+      margin-bottom:1.5rem;
+      font-style:italic;
+      text-align: center;
+    }
+    .faq-item h3 {
+      font-family: 'Indie Flower', cursive;
+      font-size: 1.2rem;
+      margin-bottom: .5rem;
+    }
+    .faq-item p {
+      font-size: 1.1rem;
+      min-height: 50px;
+      border-bottom: 1px dashed #ccc;
+    }
+    .location-map {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .location-map img {
+      width: 400px;
+      border-radius: 12px;
+    }
+    .button {
+      background-color:#9266cc;
+      color:white;
+      padding:.8rem 1.5rem;
+      text-decoration:none;
+      border-radius:30px;
+      font-weight:bold;
+      display:inline-block;
+      margin-top:1rem;
+    }
+    .tarif-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .tarif-item {
+      background: #f9f2fc;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .tarif-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+      margin-bottom: 1rem;
+    }
+    .tarif-item strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .tarif-item .tarif-desc {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: 0.3s;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .tarif-item:hover .tarif-desc {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    .social-links a {
+      background-color: #caa9e0;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      color: #4a2c5e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background:#f4ecf9;
+      text-align:center;
+      padding:2rem 1rem;
+    }
+    footer p.copyright {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+	
+	
+	.faq-answer {
+	  display: none;
+	  margin-top: 0.5rem;
+	}
+
+	.faq-question:hover .faq-answer {
+	  display: block;
+	}
+	.faq-question strong {
+	  cursor: pointer;
+	}
+	
+	.gallery {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 1rem;
+	  justify-content: center;
+	}
+
+	.gallery img {
+	  width: 200px;
+	  border-radius: 12px;
+	  transition: transform 0.3s;
+	}
+
+	.gallery img:hover {
+	  transform: scale(1.05);
+	}
+	
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Logo Dans ma bulle" class="logo-flottant">
+    <h1>Bienvenue chez Dans ma bulle</h1>
+    <p>Réflexologie et bien-être à Mauges-sur-Loire</p>
+  </header>
+
+  <nav>
+    <a href="#accueil">Accueil</a>
+	<a href="#presentation">Présentation</a>
+    <a href="#reflexologie">Réflexologie</a>
+	<a href="#apropos">À propos</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#temoignages">Témoignages</a>
+    <a href="#faq">FAQ</a>
+	<a href="#galerie">Galerie</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+
+<section id="accueil">
+  <h2 style="text-align:center;">Accueil</h2>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
+    
+    <!-- Image Bulle (plus grande) -->
+    <div style="flex-shrink: 0;">
+      <img src="bulle.JPG" alt="Image bulle" style="height: 550px; border-radius: 12px;">
+    </div>
+
+    <!-- Partie bougie : centrée verticalement -->
+    <div style="display: flex; flex-direction: column; align-items: center;">
+	<p style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem; text-align: center;">
+	  La réflexologie, le chemin vers la légèreté
+	</p>
+
+      <img src="bougie.jpeg" alt="Image bougie" style="height: 350px; border-radius: 12px;">
+    </div>
+
+  </div>
+</section>
+
+
+
+
+  <section id="presentation">
+    <h2>Présentation</h2>
+    <div class="intro" >
+      <img src="Maman.jpeg" alt="Stéphanie Rabut" style="width: 1000px;">
+      <p>Je suis Stéphanie, réflexologue en énergétique chinoise, pratiquant la réflexologie plantaire et palmaire.
+
+
+
+Le prendre soin à toujours fait partit de ma vie, ceci dés mon enfance. Le fait d’avoir, une sœur en situation de handicap a ouvert mon esprit a l’envie d’aider les autres, de les comprendre pour mieux les accompagner.
+
+
+
+C’est pourquoi, je me suis dirigé vers les métiers de l’accompagnement. D’abord en m’orientant vers la psychologie et par la suite en passant mon diplôme de monitrice éducatrice. 15 ans d’expérience en foyer pour personnes en situation de handicap, mon permis de développer mon savoir être et mon savoir faire auprès des personnes fragiles. D’avoir une oreille attentive et une observation fine de la personne dans sa globalité.
+
+
+
+Un changement de vie personnelle, l’expérience de la maladie et la perte d’un être cher va me faire quitter le secteur du social, c’est à ce tournant de ma vie que je vais connaître ce qu’est la résilience.
+
+La résilience m’a permis d’être plus forte malgré les épreuves, de prendre le positif de chaque situation. Cela va me donner une vision différente de la vie.
+
+Des rencontres humaines vont m’ouvrir à des disciplines, comme le yoga, le shiatsu ce qui va me permettre de m’ancrer plus fortement dans la vie.
+
+Un voyage en inde va aussi m’ouvrir à la spiritualité, sans parler de religion, mais cela va m’aider dans mon travail du deuil.
+<div style="text-align: center;">
+  <img src="inde.jpg" alt="Inde" style="width: 50%; height: auto; vertical-align: middle; margin-bottom: 1rem;">
+  </div>
+C’est à ce moment là que je vais me tourner vers la réflexologie, une pratique qui correspond à mes valeurs, la bienveillance, la prise en compte globale de la personne, le bien être, le respect de l’autre dans son intégralité, l’ouverture d’esprit, l’envie d’aider...</p>
+    </div>
+  </section>
+
+  <section id="reflexologie">
+    <h2>La Réflexologie</h2>
+    <p>La réflexologie est une approche globale du corps, celle-ci permet une harmonisation, un équilibre de chacun de nos systèmes, afin de soulager, de relâcher, d’apaiser mais aussi de dynamiser votre organisme. La technique de massage qui s’appelle la reptation, qui se fait avec les pouces, va permettre d’aller stimuler de façon plus ou moins intense des zones réflexes qui sont en lien avec nos organes.
+
+Lors de mes séances, je serais dans une écoute bienveillante de vos besoins, qu’ils soient physiques ou psychiques. Un temps d’échange de début de séance me permettra de cibler vos attentes ainsi visualiser les zones importantes à explorer et établir un protocole.
+
+S’offrir une séance de réflexologie, cela peut-être juste un moment de bien être, se permettre de faire pause, de prendre soin de soi, dans nos vies rythmés par notre emploi du temps bien chargé.
+
+Cela peut aussi permettre de soigner des maux physiques ou psychologique à plus ou moins long terme. Mais cette technique ne remplace à aucun moment un suivit médical..
+  <div style="text-align: center;">
+  <img src="réfléxologie.jpeg" alt="Réflexologie" style="width: 50%; height: auto; vertical-align: middle; margin-bottom: 1rem;">
+  </div>
+</p>
+  </section>
+
+<section id="apropos">
+  <h2>À propos</h2>
+
+  <p>
+    Je propose mes séances de réflexologie à toutes personnes : enfants, ados, adultes, personnes âgées ou fragiles, souhaitant découvrir, prendre du temps pour soi ou commencer un suivi.
+    Faire une séance de réflexologie peut apporter de nombreux bienfaits, tant physiques qu’émotionnels. Voici les principales raisons pour lesquelles vous pouvez choisir cette pratique :
+  </p>
+
+  <div style="text-align: center;">
+    <img src="pieD.jpeg" alt="Pied" style="width: 35%; height: auto; margin-bottom: 1rem;">
+  </div>
+
+  <p><strong>Détente et réduction du stress</strong><br>
+    La réflexologie induit une profonde relaxation. En stimulant des points réflexes (souvent sur les pieds, les mains ou le visage), elle aide à apaiser le système nerveux et à réduire les tensions accumulées.
+  </p>
+
+  <p><strong>Soulagement des douleurs</strong><br>
+    Elle peut contribuer à soulager les maux de dos, les migraines, les douleurs menstruelles, les tensions musculaires, certaines douleurs chroniques (fibromyalgie, arthrose).
+  </p>
+
+  <p><strong>Amélioration du sommeil</strong><br>
+    La détente profonde qu’elle procure favorise l’endormissement et un sommeil plus réparateur.
+  </p>
+
+  <p><strong>Stimulation de la circulation sanguine et lymphatique</strong><br>
+    En activant certains points, la réflexologie peut améliorer la circulation, ce qui aide à oxygéner les tissus et à éliminer les toxines.
+  </p>
+
+  <p><strong>Équilibrage des fonctions du corps</strong><br>
+    Elle agit selon le principe que chaque zone du pied (ou de la main) correspond à un organe ou une fonction du corps. Cela permet de rééquilibrer l’énergie vitale.
+  </p>
+
+  <p><strong>Soutien en période de changement ou de convalescence</strong><br>
+    La réflexologie peut accompagner des périodes de transition : fatigue, burn-out, grossesse, sevrage tabagique, traitement médical lourd (en soutien, jamais en remplacement), deuil.
+  </p>
+
+  <p>
+    La réflexologie ne se limite pas au soulagement des douleurs physiques : elle joue également un rôle important dans la gestion des émotions. En stimulant certains points réflexes, il est possible d’agir sur l’équilibre émotionnel de la personne.
+  </p>
+
+  <p><strong>Le lien corps-esprit en réflexologie</strong><br>
+    Les émotions ont un impact direct sur le corps. Le stress, l’anxiété ou les chocs émotionnels peuvent entraîner des tensions musculaires, des troubles digestifs ou du sommeil. À l’inverse, un déséquilibre physique peut aussi affecter le bien-être mental. La réflexologie aide à rétablir cette harmonie en agissant à la fois sur le plan physique et émotionnel.
+  </p>
+
+  <p><strong>Lors de la première séance de 1h30</strong><br>
+    Un temps d'échange d'environ 15 à 30 minutes est nécessaire pour mieux comprendre vos attentes et mieux se connaître, suivi d'un temps d'installation, puis du massage drainant de vos jambes (jusqu'au genou) ou des bras. (C'est pourquoi je vous demande une tenue souple.)<br>
+    Nous poursuivons ensuite avec le massage en réflexologie, sur les différentes zones de vos pieds ou de vos mains.
+  </p>
+
+  <p>
+    Lors d'une séance, certaines zones peuvent se révéler particulièrement sensibles. Ces réactions ne sont pas anodines : elles témoignent souvent d’un blocage émotionnel. En exerçant une pression douce mais ciblée, je peux favoriser une libération émotionnelle, permettant au corps de "lâcher prise" et à l'esprit de retrouver un état plus serein.
+  </p>
+
+  <p>
+    Lors des séances de suivi de 1h, un temps d’échange est toujours nécessaire, mais plus court, afin que vous me fassiez un retour suite à la séance précédente. Ensuite, je pratique le massage en fonction de vos attentes du jour.
+  </p>
+
+  <div style="text-align: center;">
+    <img src="maiN.jpeg" alt="Main" style="width: 35%; height: auto; margin-bottom: 1rem;">
+  </div>
+
+  <p><strong>Contre-indications à la réflexologie</strong><br>
+    La réflexologie est une méthode naturelle douce, mais certaines situations nécessitent précaution ou avis médical préalable. Voici les principales contre-indications :
+  </p>
+
+  <ul>
+    <li>Phlébite ou thrombose en cours</li>
+    <li>Problèmes circulatoires graves</li>
+    <li>Infections ou inflammations aiguës (ex. : fièvre, grippe)</li>
+    <li>Plaies ouvertes, mycoses importantes ou verrues plantaires multiples</li>
+    <li>Grossesse à risque ou premier trimestre de grossesse (par mesure de précaution)</li>
+    <li>Troubles cardiaques graves non stabilisés</li>
+    <li>Épilepsie sévère non suivie médicalement</li>
+    <li>Interventions chirurgicales récentes</li>
+  </ul>
+
+  <p>
+    En cas de doute, n’hésitez pas à me contacter pour en discuter ou à demander l’avis de votre médecin traitant. La réflexologie ne remplace jamais un traitement médical, mais peut être un excellent accompagnement complémentaire, dans le respect de votre état de santé.
+  </p>
+</section>
+
+
+  <section id="tarifs">
+    <h2>Tarifs</h2>
+    <div class="tarif-grid">
+      <div class="tarif-item">
+        <img src="tarif_pied.jpeg" alt="Plantaire 1h30">
+        <strong>1ʳᵉ séance 1h30</strong>
+        <div class="tarif-price">55 €</div>
+        <div class="tarif-desc">Après un temps d'échange, profitez d'un soin en profondeur pour apaiser durablement votre corps et votre esprit.</div>
+      </div>
+      <div class="tarif-item">
+        <img src="tarif_pied2.jpeg" alt="Plantaire 1h">
+        <strong>Plantaire 1h</strong>
+        <div class="tarif-price">45 €</div>
+        <div class="tarif-desc">Séance de suivi – Pour entretenir l’équilibre énergétique et émotionnel.</div>
+      </div>
+      <div class="tarif-item">
+        <img src="tarif_main.jpeg" alt="Palmaire 1h">
+        <strong>Palmaire 1h</strong>
+        <div class="tarif-price">45 €</div>
+        <div class="tarif-desc">Séance de suivi – Douce et efficace, adaptée à tous, même les plus sensibles.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="temoignages">
+    <h2>Témoignages clients</h2>
+    <div class="testimonials">
+      <p class="testimonial">
+        "Stéphanie est très à l 'écoute des maux qui nous amènent vers de la médecine douce pour les soulager , ou mieux encore les voir disparaître.
+		Elle prend le temps de l'analyse, pour ensuite apporter conseils et bien-être au fil des séances.
+		Lors des séances, Stéphanie est très investie, et sa pratique douce permet de lâcher prise, un temps pour soi.
+		Alors pas d' hésitation, prenez rendez-vous dès que possible, vous serez entre de bonnes mains et relaxé."
+		Anne Guilloteau
+      </p>
+      <p class="testimonial">
+        "Moment très agréable et qui m’a fait énormément de bien. 
+		Stephanie est à l’écoute tout en étant dans l’explication des soins apportés ! 
+		Merci encore pour ce doux moment." 
+		Elaine Morel
+      </p>
+      <p style="text-align:center;">
+        <a href="https://www.google.com/search?sca_esv=9df8d0d36b3fc424&uds=AOm0WdE2fekQnsyfYEw8JPYozOKzIibR-sgv4j2-2X_vs3qGLKD_VKYf54Ml9IFDXReoUTz3OMtxWdVU73AbTJDKBQQKvYnygYw2RKMlimawW6w0vcOhMWudIr-lCKpfUOjxfLC0OtzrSBZNTs0OwrErDhd0G87gtzSRzM18gGOJi3j0leJJg9I&q=DANS+MA+BULLE.+R%C3%A9flexologie+Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-EyXaZSGsOH8zoMmkhWXeDwM3zhmckl-OH-gLBz-ysTRk6GNAUoDIb7vuBro0ZObyZiOWjSHxfVMDTT1_Tiaeg9LmJlLMdhajOdLbp_gBTO_6cWwtXA%3D%3D&hl=fr-FR&sa=X&ved=2ahUKEwj9xbKZzJGOAxWGLPsDHVQYAD4Q_4MLegQIThAN&biw=1920&bih=912&dpr=1" target="_blank">Voir plus d'avis Google ici</a>
+      </p>
+    </div>
+  </section>
+
+<section id="faq">
+  <h2>Foire aux questions (FAQ)</h2>
+
+  <div class="faq-item">
+    <div class="faq-question"><strong>Est-ce que la réflexologie fait mal ?</strong>
+      <p class="faq-answer">
+        La réflexologie n'est pas censée faire mal, mais il arrive que certaines zones soient sensibles, surtout si elles correspondent à un déséquilibre ou une tension dans le corps.
+		Cette sensibilité est généralement passagère et indique simplement une zone à rééquilibrer.
+		Mon toucher reste adapté, respectueux et doux, en fonction de votre sensibilité. Le but n’est jamais de forcer, mais d’accompagner le corps vers un mieux-être, en douceur.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question"><strong>Quand ressent-on les effets de la réflexologie ?</strong>
+      <p class="faq-answer">
+        Immédiatement après la séance :
+        Certains ressentent des effets dès la fin de la séance. Il peut s'agir d'une sensation de légèreté, de détente profonde, voire de somnolence. D'autres peuvent ressentir un regain d’énergie ou une meilleure circulation sanguine.
+
+        Dans les heures ou les jours qui suivent :
+        Après une séance, il est fréquent d'observer des réactions temporaires telles qu'une augmentation de la fréquence urinaire (signe d’élimination des toxines), des émotions plus intenses ou encore un sommeil plus réparateur.
+
+        Après plusieurs séances :
+        Pour des troubles chroniques ou un déséquilibre plus profond, les bienfaits s’installent progressivement. En général, il faut entre 3 et 5 séances pour observer des changements notables.
+
+        Facteurs influençant la rapidité :
+        🔹 État de santé général
+        🔹 Fréquence des séances
+        🔹 Hygiène de vie
+
+        En résumé, certaines personnes ressentent les bienfaits immédiatement, tandis que d'autres ont besoin de plusieurs séances pour observer des changements profonds.
+      </p>
+    </div>
+  </div>
+  
+  <div class="faq-item">
+    <div class="faq-question"><strong> Quels effets peut-on ressentir après une séance de réflexologie ?</strong>
+      <p class="faq-answer">
+	  Chaque personne réagit différemment à une séance de réflexologie, mais voici les effets les plus fréquents :
+
+		🔹 Une profonde détente : la sensation de calme et de lâcher-prise est souvent immédiate.
+		🔹 Une fatigue passagère : le corps se relâche, ce qui peut entraîner une envie de repos ou de sommeil.
+		🔹 Une amélioration du sommeil : certaines personnes dorment mieux dès la première nuit.
+		🔹 Des réactions physiques : parfois, une augmentation temporaire de l’élimination (urines, transit), des frissons ou une légère sensation de froid peuvent apparaître.
+		🔹 Une libération émotionnelle : il est possible de ressentir une émotion (joie, tristesse, apaisement), signe que le corps relâche certaines tensions.
+
+		Ces effets sont naturels et temporaires : ils montrent que le corps réagit et commence à s’autoréguler.
+		Si besoin, nous pourrons en parler ensemble lors de la séance suivante.
+	  </p>
+    </div>
+  </div>
+  
+</section>
+
+<section id="galerie">
+  <h2>Galerie</h2>
+  <div class="gallery">
+    <img src="ext.jpeg" alt="Entrée du cabinet">
+    <img src="pied2.jpeg" alt="Massage Pied 2">
+	<img src="main1.jpeg" alt="Massage Main">
+    <img src="pied4.jpeg" alt="Massage Pied 4">
+    <img src="int_sombre.jpeg" alt="Cabinet ambiance nuit">
+    <img src="int_luminosité.jpeg" alt="Cabinet ambiance jour">
+  </div>
+</section>
+
+  <section id="contact">
+    <h2>Contact & Accès</h2>
+    <p style="text-align:center;"><strong>Téléphone :</strong> 06 07 01 47 26</p>
+    <p style="text-align:center;"><strong>Email :</strong> dansmabulle.reflexologue@gmail.com</p>
+    <div class="location-map">
+      <a href="https://www.google.com/maps/place/DANS+MA+BULLE.+R%C3%A9flexologie/@47.359555,-1.0259359,17z/data=!3m1!4b1!4m6!3m5!1s0x8ed4c3034a9eb5b:0x9377b5e8bb694037!8m2!3d47.359555!4d-1.023361!16s%2Fg%2F11wpb4wc9f?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D" target="_blank">
+        <img src="localisation.jpg" alt="Carte Accès">
+      </a>
+    </div>
+    <div style="text-align:center;">
+      <a class="button" href="https://prendre-mon-rdv.com/rabut-stephanie-dans-ma-bulle/reflexologue/mauges-sur-loire" target="_blank">Prendre rendez-vous</a>
+    </div>
+  </section>
+
+
+  <footer>
+    <p style="text-align:center;"> Suivez-moi sur les réseaux :</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/people/DANS-MA-BULLE/61568512797142/#" target="_blank" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/dans.ma.bulle.49/" target="_blank" target="_blank">Instagram</a>
+      <a href="https://www.google.com/search?q=dans+ma+bulle+r%C3%A9flexologie" target="_blank" target="_blank">Page Google</a>
+    </div>
+    <p class="copyright" style="text-align:center;">&copy; 2025 Dans ma bulle – Tous droits réservés.</p>
+  </footer>
+
+
+
+</body>
+</html>
