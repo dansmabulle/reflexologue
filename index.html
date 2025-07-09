@@ -330,26 +330,25 @@
 	  }
 	}
 	
-	.rdv-button-mobile {
-	  display: none;
+	.rdv-button-fixed {
+	  position: fixed;
+	  bottom: 20px;
+	  right: 20px;
+	  background: #caa9e0;
+	  color: white;
+	  padding: 0.9rem 1.4rem;
+	  border-radius: 30px;
+	  font-weight: bold;
+	  text-decoration: none;
+	  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+	  z-index: 999;
+	  transition: transform 0.2s;
 	}
 
-	@media (max-width: 768px) {
-	  .rdv-button-mobile {
-		display: block;
-		position: fixed;
-		bottom: 15px;
-		right: 15px;
-		background: #caa9e0;
-		color: white;
-		padding: 0.8rem 1.2rem;
-		border-radius: 25px;
-		text-decoration: none;
-		font-weight: bold;
-		box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-		z-index: 999;
-	  }
+	.rdv-button-fixed:hover {
+	  transform: scale(1.05);
 	}
+
 
 
 
@@ -739,13 +738,25 @@ Cela peut aussi permettre de soigner des maux physiques ou psychologique à plus
     <p class="copyright" style="text-align:center;">&copy; 2025 Dans ma bulle – Tous droits réservés.</p>
   </footer>
   
-<a href="https://prendre-mon-rdv.com/rabut-stephanie-dans-ma-bulle/reflexologue/mauges-sur-loire" class="rdv-button-mobile" target="_blank"> Prendre RDV</a>
+<a href="https://prendre-mon-rdv.com/rabut-stephanie-dans-ma-bulle/reflexologue/mauges-sur-loire" class="rdv-button-fixed" target="_blank"> Prendre RDV</a>
+
 
 <script>
   function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("active");
   }
+
+  // Fermer le menu mobile quand on clique sur un lien
+  document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll("#navLinks a");
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+  });
 </script>
+
 
 
 </body>
