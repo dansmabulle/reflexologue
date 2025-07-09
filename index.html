@@ -332,22 +332,33 @@
 	
 	.rdv-button-fixed {
 	  position: fixed;
-	  bottom: 20px;
-	  right: 20px;
+	  bottom: 16px;
+	  right: 16px;
 	  background: #caa9e0;
 	  color: white;
-	  padding: 0.9rem 1.4rem;
+	  padding: 0.8rem 1.2rem;
 	  border-radius: 30px;
 	  font-weight: bold;
 	  text-decoration: none;
 	  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 	  z-index: 999;
-	  transition: transform 0.2s;
+	  font-size: 1rem;
+	  max-width: 90vw;
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
 	}
 
-	.rdv-button-fixed:hover {
-	  transform: scale(1.05);
+	/* Sur petits écrans, adapte la taille */
+	@media (max-width: 400px) {
+	  .rdv-button-fixed {
+		font-size: 0.9rem;
+		padding: 0.6rem 1rem;
+		bottom: 12px;
+		right: 12px;
+	  }
 	}
+
 
 
 
@@ -738,7 +749,8 @@ Cela peut aussi permettre de soigner des maux physiques ou psychologique à plus
     <p class="copyright" style="text-align:center;">&copy; 2025 Dans ma bulle – Tous droits réservés.</p>
   </footer>
   
-<a href="https://prendre-mon-rdv.com/rabut-stephanie-dans-ma-bulle/reflexologue/mauges-sur-loire" class="rdv-button-fixed" target="_blank"> Prendre RDV</a>
+<a href="https://prendre-mon-rdv.com/rabut-stephanie-dans-ma-bulle/reflexologue/mauges-sur-loire" class="rdv-button-fixed" target="_blank">🗓 Prendre RDV</a>
+
 
 
 <script>
