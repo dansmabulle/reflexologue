@@ -276,6 +276,82 @@
 		font-size: 1rem;
 	  }
 	}
+	
+	.nav-container {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  flex-wrap: wrap;
+	  max-width: 1200px;
+	  margin: auto;
+	}
+
+	.nav-logo {
+	  font-size: 1.2rem;
+	  font-weight: bold;
+	  color: #4a2c5e;
+	}
+
+	.nav-toggle {
+	  display: none;
+	  font-size: 1.8rem;
+	  cursor: pointer;
+	}
+
+	.nav-links {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: center;
+	  gap: 1rem;
+	}
+
+	@media (max-width: 768px) {
+	  .nav-toggle {
+		display: block;
+	  }
+
+	  .nav-links {
+		display: none;
+		flex-direction: column;
+		width: 100%;
+		margin-top: 1rem;
+		gap: 0.5rem;
+	  }
+
+	  .nav-links.active {
+		display: flex;
+	  }
+
+	  .nav-links a {
+		text-align: center;
+		padding: 0.5rem 0;
+		background: #f4ecf9;
+		border-radius: 8px;
+	  }
+	}
+	
+	.rdv-button-mobile {
+	  display: none;
+	}
+
+	@media (max-width: 768px) {
+	  .rdv-button-mobile {
+		display: block;
+		position: fixed;
+		bottom: 15px;
+		right: 15px;
+		background: #caa9e0;
+		color: white;
+		padding: 0.8rem 1.2rem;
+		border-radius: 25px;
+		text-decoration: none;
+		font-weight: bold;
+		box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+		z-index: 999;
+	  }
+	}
+
+
 
 	
   </style>
@@ -289,17 +365,25 @@
   </header>
 
   <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#presentation">Présentation</a>
-    <a href="#reflexologie">Réflexologie</a>
-    <a href="#apropos">À propos</a>
-    <a href="#tarifs">Tarifs</a>
-    <a href="#temoignages">Témoignages</a>
-    <a href="#faq">FAQ</a>
-	<a href="#event">Événements</a>
-    <a href="#galerie">Galerie</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="nav-container">
+    <div class="nav-logo">Menu</div>
+    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#accueil">Accueil</a>
+      <a href="#presentation">Présentation</a>
+      <a href="#reflexologie">Réflexologie</a>
+      <a href="#apropos">À propos</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#temoignages">Témoignages</a>
+      <a href="#faq">FAQ</a>
+      <a href="#event">Événements</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+
 
 
 <section id="accueil">
@@ -338,7 +422,7 @@ Le prendre soin à toujours fait partit de ma vie, ceci dés mon enfance. Le fai
 
 
 
-C’est pourquoi, je me suis dirigé vers les métiers de l’accompagnement. D’abord en m’orientant vers la psychologie et par la suite en passant mon diplôme de monitrice éducatrice. 15 ans d’expérience en foyer pour personnes en situation de handicap, mon permis de développer mon savoir être et mon savoir faire auprès des personnes fragiles. D’avoir une oreille attentive et une observation fine de la personne dans sa globalité.
+C’est pourquoi, je me suis dirigée vers les métiers de l’accompagnement. D’abord en m’orientant vers la psychologie et par la suite en passant mon diplôme de monitrice éducatrice. 15 ans d’expérience en foyer pour personnes en situation de handicap, m'ont permis de développer mon savoir être et mon savoir faire auprès des personnes fragiles. D’avoir une oreille attentive et une observation fine de la personne dans sa globalité.
 
 
 
@@ -364,7 +448,7 @@ Lors de mes séances, je serais dans une écoute bienveillante de vos besoins, q
 
 S’offrir une séance de réflexologie, cela peut-être juste un moment de bien être, se permettre de faire pause, de prendre soin de soi, dans nos vies rythmés par notre emploi du temps bien chargé.
 
-Cela peut aussi permettre de soigner des maux physiques ou psychologique à plus ou moins long terme. Mais cette technique ne remplace à aucun moment un suivit médical..
+Cela peut aussi permettre de soigner des maux physiques ou psychologique à plus ou moins long terme. Mais cette technique ne remplace à aucun moment un suivi médical..
   <div style="text-align: center;">
   <img src="réfléxologie.jpeg" alt="Réflexologie" style="width: 50%; height: auto; vertical-align: middle; margin-bottom: 1rem;">
   </div>
@@ -654,7 +738,14 @@ Cela peut aussi permettre de soigner des maux physiques ou psychologique à plus
     </div>
     <p class="copyright" style="text-align:center;">&copy; 2025 Dans ma bulle – Tous droits réservés.</p>
   </footer>
+  
+<a href="https://prendre-mon-rdv.com/rabut-stephanie-dans-ma-bulle/reflexologue/mauges-sur-loire" class="rdv-button-mobile" target="_blank"> Prendre RDV</a>
 
+<script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+  }
+</script>
 
 
 </body>
