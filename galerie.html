@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Galerie — Photos du cabinet et des séances">
+  <title>Galerie — Dans ma bulle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="asset/css/style.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-container">
+      <div class="nav-logo">Menu</div>
+      <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Accueil</a>
+        <a href="presentation.html">Présentation</a>
+        <a href="reflexologie.html">Réflexologie</a>
+        <a href="apropos.html">À propos</a>
+        <a href="tarifs.html">Tarifs</a>
+        <a href="temoignages.html">Témoignages</a>
+        <a href="faq.html">FAQ</a>
+        <a href="event.html">Événements</a>
+        <a href="galerie.html" class="active">Galerie</a>
+        <a href="just.html">Ateliers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+  
+  <header class="hero">
+    <img src="asset/img/logo.png" alt="Logo" class="logo-flottant">
+    <h1>Galerie</h1>
+    <p>Ambiance du cabinet &amp; instants détente</p>
+    <div class="rule"></div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="block">
+
+        <div class="block-header">
+          <span class="dot"></span>
+          <h2>Visite du cabinet</h2>
+        </div>
+        <p class="gallery-intro">
+          Suivez le chemin et découvrez pas à pas l’univers de <strong>Dans ma bulle</strong> :
+          de l’extérieur du cabinet jusqu’aux instants de détente en réflexologie.
+        </p>
+
+        <div class="gallery-path">
+
+          <!-- COURBE SVG AU CENTRE -->
+          <svg class="gallery-svg" viewBox="0 0 1000 2600" preserveAspectRatio="none" aria-hidden="true">
+            <path d="
+              M 500 0
+              C 900 250, 900 250, 500 500
+              C 100 750, 100 750, 500 1000
+              C 900 1250, 900 1250, 500 1500
+              C 100 1750, 100 1750, 500 2000
+              C 900 2250, 900 2250, 500 2600
+            " />
+          </svg>
+
+          <!-- 1. À l’extérieur (contenu à droite de la courbe) -->
+          <div class="gallery-step reverse step-1">
+            <div class="gallery-content">
+              <div class="gallery-media">
+                <img src="asset/img/galerie1.jpg" alt="Entrée du cabinet Dans ma bulle">
+              </div>
+              <div class="gallery-text">
+                <h3>1. À l’extérieur</h3>
+                <p>
+                  Tout commence ici, devant l’entrée du cabinet. Un lieu calme et facilement
+                  accessible, où l’on prend déjà le temps de souffler avant de franchir la porte.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Couloir & salle d’attente (contenu à gauche de la courbe) -->
+          <div class="gallery-step step-2">
+            <div class="gallery-content">
+              <div class="gallery-media">
+                <img src="asset/img/galerie2.jpg" alt="Couloir et salle d’attente du cabinet">
+              </div>
+              <div class="gallery-text">
+                <h3>2. L’accueil</h3>
+                <p>
+                  Un couloir épuré, quelques sièges confortables&nbsp;: le temps d’arriver,
+                  de déposer son manteau et de se mettre doucement dans sa bulle.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Bureau de consultation (contenu à droite de la courbe) -->
+          <div class="gallery-step reverse step-3">
+            <div class="gallery-content">
+              <div class="gallery-media">
+                <img src="asset/img/galerie3.jpg" alt="Bureau de consultation lumineux">
+              </div>
+              <div class="gallery-text">
+                <h3>3. Le cabinet de consultation</h3>
+                <p>
+                  Voici l’espace d’échange et d’écoute. Lumière naturelle, mobilier simple
+                  et chaleureux&nbsp;: tout est pensé pour vous accueillir en confiance.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Coin détente (contenu à gauche de la courbe) -->
+          <div class="gallery-step reverse step-4">
+            <div class="gallery-content">
+              <div class="gallery-media">
+                <img src="asset/img/galerie4.jpg" alt="Fauteuil de détente dans le cabinet">
+              </div>
+              <div class="gallery-text">
+                <h3>4. Un coin pour se poser</h3>
+                <p>
+                  Un fauteuil enveloppant, un plaid tout doux, une ambiance tamisée&nbsp;:
+                  un endroit pour se recentrer, respirer et laisser le corps se relâcher.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Les petits détails (contenu à droite de la courbe) -->
+          <div class="gallery-step step-5">
+            <div class="gallery-content">
+              <div class="gallery-media">
+                <img src="asset/img/galerie5.jpg" alt="Bougie et produits de soin Just">
+              </div>
+              <div class="gallery-text">
+                <h3>5. Les petites attentions</h3>
+                <p>
+                  Bougie, produits de soin, message positif… Ce sont ces petits détails
+                  qui participent à créer une atmosphère cocooning et bienveillante.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Réflexologie plantaire (pied2 conservé, en dernier) -->
+          <div class="gallery-step reverse step-6">
+            <div class="gallery-content">
+              <div class="gallery-media">
+                <img src="asset/img/pied2.jpeg" alt="Séance de réflexologie plantaire">
+              </div>
+              <div class="gallery-text">
+                <h3>6. Réflexologie plantaire</h3>
+                <p>
+                  Au cœur de la séance, le travail des zones réflexes des pieds.
+                  Des pressions précises pour dénouer les tensions, soutenir l’organisme
+                  et inviter à une détente profonde.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.gallery-path -->
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p class="copyright">© 2025 Dans ma bulle – Tous droits réservés.</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/p/DANS-MA-BULLE-61568512797142/" target="_blank" rel="noopener"> Facebook</a>
+      <a href="https://www.instagram.com/dans.ma.bulle.49/" target="_blank" rel="noopener"> Instagram</a>
+    </div>
+  </footer>
+
+  <a href="https://prendre-mon-rdv.com/rabut-stephanie-dans-ma-bulle/reflexologue/mauges-sur-loire"
+     class="rdv-button-fixed" target="_blank" rel="noopener">🗓 Prendre RDV</a>
+
+  <script src="asset/js/app.js"></script>
+</body>
+</html>
