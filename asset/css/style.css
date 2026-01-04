@@ -1,1 +1,841 @@
+:root{
+  --violet:#9266cc;
+  --violet-50:#f4ecf9;
+  --lavande:#caa9e0;
+  --accent:#f7efe9;
+  --text:#333;
+}
 
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Indie Flower',cursive;
+  color:var(--text);
+  background:#fff;
+}
+
+/* ---------- HEADER NORMAL POUR TOUTES LES PAGES (sauf accueil) ---------- */
+/* ----- DÉGRADÉ DOUX EN BAS DES HEADERS ----- */
+.hero::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px; /* pour couvrir le bord */
+  height: 120px; /* augmente pour un fondu plus long */
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.65) 60%,
+    #ffffff 100%
+  );
+  pointer-events: none;
+}
+
+.hero{
+  position: relative;
+  padding: 9rem 2rem 8rem;   /* ← AUGMENTE LA HAUTEUR */
+  text-align: center;
+  background: linear-gradient(135deg,#efc7d5,#e6d0ff,#f6eaff);
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  color:#4a2c5e;
+  font-size:2.7rem;  /* un peu plus grand = meilleur équilibre */
+  margin: 0 0 .5rem;
+}
+
+.hero p{
+  font-size:1.2rem;
+  margin: 0;
+  color:#4a2c5e;
+}
+.hero .rule{
+  display: none !important;
+}
+/* ---------- HERO ACCUEIL INSPIRÉ MAQUETTE ---------- */
+
+.hero-home{
+  background: linear-gradient(135deg,#f8d8e4,#f3e5ff,#fdf7ff);
+  padding: 6rem 1rem 4rem; /* laisse de la place pour le menu */
+}
+
+.hero-shell{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Colonne gauche */
+.hero-text{
+  max-width: 520px;
+}
+
+.hero-logo{
+  width: 140px;
+  height: auto;
+  margin-bottom: 1.2rem;
+}
+
+.hero-text h1{
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  color: #4a2c5e;
+  margin: 0 0 .75rem;
+}
+
+.hero-subtitle{
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0 0 1.4rem;
+}
+
+.hero-btn{
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  background: #9266cc;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(146,102,204,0.25);
+}
+
+/* Colonne droite : carte image comme la maquette */
+.hero-visual{
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.06);
+  padding: 1.3rem;
+}
+
+.hero-image{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+}
+
+/* Petite anim douce */
+.hero-home{
+  animation: heroFade 0.8s ease-out both;
+}
+@keyframes heroFade{
+  from{opacity:0; transform:translateY(18px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* --------- Version mobile --------- */
+@media (max-width: 768px){
+  .hero-home{
+    padding: 5rem 1rem 3rem;
+  }
+  .hero-shell{
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .hero-text{
+    text-align: center;
+    margin: 0 auto;
+  }
+  .hero-logo{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-text h1{
+    font-size: 2rem;
+  }
+}
+
+.logo-flottant{
+  position:absolute;top:24px;left:50%;transform:translateX(-50%);
+  width:520px;max-width:85vw;height:auto;opacity:.9;z-index:2
+}
+.hero h1{
+  position:relative;z-index:3;
+  font-family:'Playfair Display',serif;
+  color:#4a2c5e;font-size:2.2rem;margin:0
+}
+.hero p{
+  position:relative;z-index:3;
+  margin:.5rem 0 0;font-size:1.1rem
+}
+
+/* petites barres décoratives */
+.rule{
+  width:120px;height:6px;border-radius:3px;margin:.75rem auto 0;
+  background:linear-gradient(90deg,var(--lavande),var(--violet));
+}
+
+/* ---------- NAV ---------- */
+
+
+.nav-container{
+  width: 100%;
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+}
+
+
+.nav-logo{
+  font-weight: bold;
+  color: #4a2c5e;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  flex-shrink: 0;      /* ne rétrécit pas */
+  margin-right: 2rem;  /* petit espace avec les liens */
+}
+
+.nav-toggle{
+  display: none;
+  background: transparent;
+  border: 0;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.nav-links{
+  display:flex;
+  justify-content:center;
+  flex:1;          /* prend tout l'espace à droite du mot Menu */
+  gap:1.8rem;
+  white-space:nowrap;
+}
+
+
+.nav-links a{
+  text-decoration: none;
+  color: #4a2c5e;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+  padding: .35rem .6rem;
+  border-radius: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  background: var(--violet-50);
+}
+
+
+/* ---------- CONTENU / BLOCS ---------- */
+.section{padding:3rem 1rem}
+.container{max-width:1000px;margin:0 auto}
+
+.block{
+  background:linear-gradient(180deg,#fff,var(--accent));
+  border:1px solid #eee;border-radius:18px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+  padding:1.25rem 1.25rem 1.5rem;margin:1.25rem 0
+}
+.block-header{
+  display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem
+}
+.block-header .dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--violet);box-shadow:0 0 0 6px rgba(146,102,204,.15)
+}
+.block h2{
+  font-family:'Playfair Display',serif;color:#4a2c5e;font-size:1.6rem;margin:.25rem 0 .75rem;text-align:left
+}
+p{font-size:1.1rem;line-height:1.65;margin:0 0 1rem}
+
+/* images génériques */
+.img-fluid{max-width:100%;height:auto;border-radius:12px}
+.img-rounded{border-radius:16px}
+.shadow{box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.center{text-align:center}
+
+/* -------- PAGE PRÉSENTATION : STYLE COACH / POLAROID -------- */
+
+.presentation-intro{
+  margin-top: 2rem;
+}
+
+.presentation-flex{
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+/* Carte polaroid */
+.polaroid-card{
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.2rem 1.2rem 1.6rem;
+  max-width: 360px;
+  margin: 0 auto;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+}
+
+/* Scotch en haut */
+.polaroid-card::before{
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 120px;
+  height: 26px;
+  background: #f4e2c9;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+/* Zone photo */
+.polaroid-photo-wrapper{
+  background: #f8f5f0;
+  padding: .6rem .6rem 1.2rem;
+  border-radius: 12px;
+}
+
+.polaroid-photo{
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Légende sous la photo */
+.polaroid-caption{
+  margin: .8rem 0 0;
+  font-weight: 600;
+  text-align: center;
+  color: #4a2c5e;
+  line-height: 1.4;
+}
+.polaroid-caption span{
+  display:block;
+  font-weight:400;
+  font-size:.9rem;
+  opacity:.8;
+}
+
+/* Carte texte à côté */
+.presentation-card{
+  background: #fff;
+  border-radius: 24px;
+  padding: 2rem 2.4rem;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.05);
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .presentation-flex{
+    grid-template-columns: 1fr;
+  }
+  .presentation-card{
+    padding: 1.6rem 1.4rem;
+  }
+}
+
+/* ---------- GALERIE : CHEMIN SVG STYLE PINTEREST ---------- */
+
+.gallery-intro{
+  margin: .5rem 0 1.5rem;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+/* conteneur global du chemin */
+.gallery-path{
+  position: relative;
+  margin-top: 1rem;
+  padding: 2rem 0 3rem;
+}
+
+/* SVG central (la courbe) */
+.gallery-svg{
+  position: absolute;
+  inset: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.gallery-svg path{
+  stroke: rgba(146,102,204,0.45);
+  stroke-width: 9;
+  fill: none;
+  stroke-linecap: round;
+}
+
+
+/* Image + texte regroupés dans une seule colonne */
+.gallery-step{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Une colonne pour la courbe, une pour le contenu */
+  align-items: center;
+  margin: 4rem 0;
+}
+
+/* Contenu de l’étape */
+.gallery-content{
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+/* Contenu à droite de la courbe */
+.gallery-step:not(.reverse) .gallery-content{
+  grid-column: 2;
+  padding-left: 2rem;
+}
+
+/* Contenu à gauche de la courbe */
+.gallery-step.reverse .gallery-content{
+  grid-column: 1;
+  padding-right: 2rem;
+}
+
+
+
+/* inversion une fois sur deux (image à droite) */
+.gallery-step.reverse .gallery-media{
+  order: 2;
+}
+.gallery-step.reverse .gallery-text{
+  order: 1;
+}
+
+/* texte légèrement éloigné de la courbe selon le côté */
+.gallery-step:not(.reverse) .gallery-text{
+  padding-left: 3.5rem;       /* texte à droite → on le pousse vers l’extérieur */
+}
+.gallery-step.reverse .gallery-text{
+  padding-right: 3.5rem;      /* texte à gauche → on le pousse vers l’extérieur */
+}
+
+/* point sur le chemin */
+.gallery-step::before{
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid rgba(146,102,204,0.7);
+  box-shadow: 0 0 0 6px rgba(146,102,204,0.15);
+}
+
+/* --- Points positionnés à la main, pour suivre la courbe --- */
+
+/* 1. À l’extérieur */
+.step-1::before{
+  top: 50%;
+  left: 71%;
+  transform: translate(-50%,-50%);
+}
+
+/* 2. Lumière & douceur */
+.step-2::before{
+  top: 60%;
+  left: 30%;
+  transform: translate(-50%,-50%);
+}
+
+/* 3. Ambiance tamisée */
+.step-3::before{
+  top: 50%;
+  left: 58%;
+  transform: translate(-50%,-50%);
+}
+
+/* 4. Réflexologie plantaire */
+.step-4::before{
+  top: 50%;
+  left: 51%;
+  transform: translate(-50%,-50%);
+}
+
+/* 5. Un travail en finesse */
+.step-5::before{
+  top: 50%;
+  left: 39%;
+  transform: translate(-50%,-50%);
+}
+
+/* 6. Réflexologie palmaire */
+.step-6::before{
+  top: 50%;
+  left: 69.5%;
+  transform: translate(-50%,-50%);
+}
+
+
+
+/* images, un peu plus petites pour laisser la place à la courbe */
+.gallery-media img{
+  width: 72%;
+  max-width: 280px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 18px 35px rgba(0,0,0,0.08);
+}
+
+/* texte */
+.gallery-text h3{
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #4a2c5e;
+  margin: 0 0 .4rem;
+}
+.gallery-text p{
+  margin: 0;
+  line-height: 1.7;
+}
+/* ----- Paiements : petites cartes douces ----- */
+.paiement-grid{
+  display:flex;
+  justify-content:center;
+  gap:2rem;
+  flex-wrap:wrap;
+  margin-top:1.5rem;
+}
+
+.paiement-card{
+  background:#fff;
+  border-radius:18px;
+  padding:1.2rem 1.6rem;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  text-align:center;
+  width:140px;
+  transition:transform .25s;
+}
+
+.paiement-card:hover{
+  transform:translateY(-4px);
+}
+
+.paiement-icon{
+  font-size:2rem;
+  margin-bottom:.4rem;
+  color:#9266cc;
+}
+
+.paiement-card p{
+  margin:0;
+  font-size:1.05rem;
+  font-weight:500;
+  color:#4a2c5e;
+}
+
+
+/* ----- Cartes cadeaux premium ----- */
+.cadeau-flex{
+  display:flex;
+  gap:2.5rem;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-top:1.5rem;
+}
+
+.cadeau-text{
+  flex:1 1 300px;
+  font-size:1.1rem;
+  line-height:1.6;
+}
+
+.cadeau-images{
+  flex:1 1 300px;
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  position:relative;
+}
+
+.cadeau-img{
+  width:210px;
+  border-radius:14px;
+  box-shadow:0 14px 28px rgba(0,0,0,0.12);
+}
+
+.cadeau-img.tilted{
+  transform:rotate(-4deg);
+}
+
+@media(max-width:800px){
+  .cadeau-img{
+    width:45%;
+  }
+}
+
+/* --------- Responsive --------- */
+@media (max-width: 900px){
+  .gallery-svg{
+    width: 140px;
+    left: 0;
+    transform: none;
+  }
+  .gallery-step{
+    grid-template-columns: 1fr;
+    margin: 2.2rem 0;
+    padding-left: 2.7rem;
+    column-gap: 0;
+  }
+  .gallery-step.reverse .gallery-media,
+  .gallery-step.reverse .gallery-text{
+    order: initial;
+  }
+  .gallery-step::before{
+    left: 20px;
+    transform: translateY(-50%);
+  }
+  .gallery-media img{
+    width: 85%;
+    max-width: 260px;
+  }
+}
+
+
+/* ---------- NOUVELLES GRILLES / UTILITAIRES ---------- */
+.grid{display:grid;gap:2rem}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+@media (max-width:860px){
+  .grid-2{grid-template-columns:1fr}
+}
+.media{text-align:center}
+.order-mobile-last{order:2}
+@media (min-width:861px){
+  .order-mobile-last{order:initial}
+}
+
+.split{display:grid;gap:2rem;align-items:center}
+.split-2{grid-template-columns:1fr 1fr}
+@media (max-width:860px){
+  .split-2{grid-template-columns:1fr}
+}
+
+/* boutons & liens */
+.btn{display:inline-block;font-weight:bold;text-decoration:none}
+.btn-link{color:#4a2c5e;border-bottom:2px solid var(--lavande);padding-bottom:2px}
+.btn-link:hover{opacity:.8}
+
+/* rangées de cartes (témoignages, petits blocs) */
+.card-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
+.card{
+  background:#fff;border:1px solid #eee;border-radius:16px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);padding:1rem
+}
+.card h3{margin:.25rem 0 .5rem;color:#4a2c5e;font-family:'Playfair Display',serif}
+.card p{margin:.5rem 0}
+
+/* ---------- TARIFS : 3 CARTES STYLE "LOMBOK" ---------- */
+
+.tarif-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:2rem;
+  align-items:stretch;
+  margin-top:1.5rem;
+}
+
+/* carte individuelle */
+.tarif-item{
+  background:#fff;
+  border-radius:24px;
+  padding:1.5rem 1.6rem 1.9rem;
+  box-shadow:0 18px 40px rgba(0,0,0,.06);
+  border:1px solid #f1edf7;
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+}
+
+/* image en haut de la carte */
+.tarif-item img{
+  width:100%;
+  max-width:320px;
+  height:auto;
+  display:block;
+  margin:0 auto 1rem;
+  border-radius:18px;
+}
+
+/* titre de la séance */
+.tarif-item strong{
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;
+  color:#4a2c5e;
+  margin:.2rem 0 .4rem;
+}
+
+/* prix mis en valeur */
+.tarif-price{
+  font-size:1.3rem;
+  font-weight:bold;
+  color:#4a2c5e;
+  margin:0 0 .6rem;
+}
+
+/* description */
+.tarif-desc{
+  font-size:1rem;
+  line-height:1.7;
+}
+
+/* sur mobile : les cartes passent proprement les unes sous les autres */
+@media (max-width: 768px){
+  .tarif-item{
+    text-align:center;
+    padding:1.4rem 1.2rem 1.7rem;
+  }
+  .tarif-item strong{
+    font-size:1.2rem;
+  }
+}
+
+
+
+
+/* témoignages */
+.testimonial-card{font-style:normal}
+.testimonial-card blockquote{margin:0;font-style:italic}
+.testimonial-card .author{display:block;margin-top:.75rem;font-weight:bold;color:#4a2c5e}
+
+/* FAQ timeline */
+.faq-timeline{position:relative;margin:1.5rem 0}
+.faq-timeline::before{
+  content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(146,102,204,.25);transform:translateX(-50%)
+}
+.faq-timeline .faq-item{
+  position:relative;width:calc(50% - 1.25rem);
+  background:rgba(202,169,224,.18);
+  padding:1.25rem;border-radius:12px;margin:1rem 0
+}
+.faq-timeline .faq-item:nth-child(odd){margin-right:auto}
+.faq-timeline .faq-item:nth-child(even){margin-left:auto}
+.faq-timeline .faq-item::after{
+  content:"";position:absolute;top:1.1rem;width:10px;height:10px;border-radius:50%;
+  background:var(--violet);box-shadow:0 0 0 6px rgba(146,102,204,.15)
+}
+.faq-timeline .faq-item:nth-child(odd)::after{right:-6px}
+.faq-timeline .faq-item:nth-child(even)::after{left:-6px}
+@media (max-width:900px){
+  .faq-timeline::before{display:none}
+  .faq-timeline .faq-item{width:100%}
+  .faq-timeline .faq-item::after{display:none}
+}
+.faq-question strong{cursor:pointer}
+.faq-answer{display:none;margin-top:.5rem}
+.faq-question:hover .faq-answer{display:block}
+
+/* galerie */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
+.gallery img{width:100%;border-radius:12px;transition:transform .25s}
+.gallery img:hover{transform:scale(1.03)}
+/* variante “petites images” pour Événements */
+.gallery.small{grid-template-columns:repeat(auto-fit,minmax(220px,300px));justify-content:center}
+.gallery.small img{max-width:300px;margin:0 auto}
+
+/* MAP + bouton principal */
+.location-map{text-align:center;margin:1.5rem 0}
+.button{
+  background-color:var(--violet);color:#fff;padding:.85rem 1.4rem;border-radius:30px;
+  text-decoration:none;font-weight:bold;display:inline-block
+}
+
+/* Grille Bienfaits (4 cartes 2x2) */
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.benefit-card{
+  background:#fff;border:1px solid #eee;border-radius:14px;padding:1rem;
+  box-shadow:0 2px 8px rgba(0,0,0,.05)
+}
+.benefit-card strong{color:#4a2c5e}
+
+
+/* ---------- FOOTER DÉGRADÉ (même style que le haut) ---------- */
+footer{
+  background: linear-gradient(
+    to bottom,         /* du haut vers le bas */
+    #ffffff 0%,        /* blanc en haut */
+    #f6eaff 40%,       /* très clair */
+    #e6d0ff 75%,       /* lilas */
+    #efc7d5 100%       /* rose en bas */
+  );
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+footer p{
+  margin: 0;
+  color: #4a2c5e;
+  font-size: 0.95rem;
+}
+
+
+
+
+.social-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin:.5rem 0 0}
+.social-links a{
+  background-color:var(--lavande);color:#4a2c5e;text-decoration:none;font-weight:bold;
+  padding:.5rem 1rem;border-radius:20px
+}
+.social-links {
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:.5rem 0 0;
+}
+.social-links a {
+  background-color: var(--lavande);
+  color:#4a2c5e;
+  text-decoration:none;
+  font-weight:bold;
+  padding:.5rem 1rem;
+  border-radius:20px;
+}
+
+
+/* BOUTON FIXE RDV */
+.rdv-button-fixed{
+  position:fixed;right:16px;bottom:16px;
+  background:var(--lavande);color:#fff;padding:.8rem 1.2rem;border-radius:30px;
+  font-weight:bold;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,.2);z-index:999;
+  font-size:1rem;max-width:90vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+}
+
+
+/* Rééquilibrage horizontal du menu sur grand écran */
+@media (min-width: 900px){
+  .nav-links{
+    margin-left: -40px; /* ajuste le décalage à gauche */
+  }
+}
+
+
+
+@media (max-width:400px){
+  .rdv-button-fixed{font-size:.92rem;padding:.65rem 1rem;right:12px;bottom:12px}
+}
+
+/* RESPONSIVE NAV */
+@media (max-width:900px){
+  .logo-flottant{width:420px}
+}
+@media (max-width:768px){
+  .nav-toggle{display:block}
+  .nav-links{display:none;flex-direction:column;flex-wrap: wrap;justify-content: center;width:100%;margin-top:.75rem;gap:.5rem}
+  .nav-links.active{display:flex}
+  .nav-links a{background:var(--violet-50)}
+  .hero{padding-top:9.5rem}
+  .logo-flottant{width:320px}
+}
