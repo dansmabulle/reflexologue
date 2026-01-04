@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dansmabulle.github.io/reflexologue/sitemap.xml

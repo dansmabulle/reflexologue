@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Présentation — parcours de Stéphanie Rabut, réflexologue">
+  <title>Présentation — Dans ma bulle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="asset/css/style.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-container">
+      <div class="nav-logo">Menu</div>
+      <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Accueil</a>
+        <a href="presentation.html" class="active">Présentation</a>
+        <a href="reflexologie.html">Réflexologie</a>
+        <a href="apropos.html">À propos</a>
+        <a href="tarifs.html">Tarifs</a>
+        <a href="temoignages.html">Témoignages</a>
+        <a href="faq.html">FAQ</a>
+        <a href="event.html">Événements</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="just.html">Ateliers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <img src="asset/img/logo.png" alt="Logo" class="logo-flottant">
+    <h1>Présentation</h1>
+    <p>Mon parcours & mon approche</p>
+    <div class="rule"></div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+
+      <!-- BLOC 1 : POLAROID + TEXTE (inchangé) -->
+      <div class="block presentation-intro">
+        <div class="presentation-flex">
+
+          <div class="polaroid-card">
+            <div class="polaroid-photo-wrapper">
+              <img src="asset/img/maman.jpeg" alt="Stéphanie Rabut" class="polaroid-photo">
+            </div>
+            <p class="polaroid-caption">
+              Stéphanie Rabut<br>
+              <span>Réflexologue en énergétique chinoise</span>
+            </p>
+          </div>
+
+          <div class="presentation-card">
+            <div class="block-header">
+              <span class="dot"></span>
+              <h2>Mon parcours</h2>
+            </div>
+
+            <p>Je suis Stéphanie, réflexologue en énergétique chinoise, pratiquant la réflexologie plantaire et palmaire.</p>
+            <p>Le prendre soin a toujours fait partie de ma vie, dès mon enfance. Le fait d’avoir une sœur en situation de handicap a ouvert mon esprit à l’envie d’aider les autres, de les comprendre pour mieux les accompagner.</p>
+            <p>C’est pourquoi, je me suis dirigée vers les métiers de l’accompagnement. D’abord en m’orientant vers la psychologie et par la suite en passant mon diplôme de monitrice éducatrice. 15 ans d’expérience en foyer pour personnes en situation de handicap, m'ont permis de développer mon savoir être et mon savoir faire auprès des personnes fragiles. D’avoir une oreille attentive et une observation fine de la personne dans sa globalité.</p>
+            <p>Un changement de vie personnelle, l’expérience de la maladie et la perte d’un être cher va me faire quitter le secteur du social, c’est à ce tournant de ma vie que je vais connaître ce qu’est la résilience.</p>
+            <p>La résilience m’a permis d’être plus forte malgré les épreuves, de prendre le positif de chaque situation. Cela va me donner une vision différente de la vie.</p>
+            <p>Des rencontres humaines vont m’ouvrir à des disciplines, comme le yoga, le shiatsu ce qui va me permettre de m’ancrer plus fortement dans la vie.</p>
+            <p>Un voyage en inde va aussi m’ouvrir à la spiritualité, sans parler de religion, mais cela va m’aider dans mon travail du deuil.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BLOC 2 : TEXTE GAUCHE + IMAGE DROITE -->
+      <div class="block">
+        <div class="block-header">
+          <span class="dot"></span>
+          <h2>Un voyage marquant</h2>
+        </div>
+
+        <div class="split split-2">
+          <!-- TEXTE À GAUCHE -->
+          <div>
+            <p>Mon voyage en Inde a profondément transformé ma vision du bien-être, de la spiritualité et du rapport au corps. Ce moment suspendu a renforcé mon envie d’accompagner les personnes sur leur propre chemin intérieur.</p>
+            <p>Cette expérience m’a permis de me recentrer, d’apaiser certaines blessures émotionnelles et d’ancrer ma pratique dans une approche encore plus humaine et intuitive.
+			C’est à ce moment là que je vais me tourner vers la réflexologie, une pratique qui correspond à mes valeurs, la bienveillance, la prise en compte globale de la personne, le bien être, le respect de l’autre dans son intégralité, l’ouverture d’esprit, l’envie d’aider...
+			</p>
+          </div>
+
+          <!-- IMAGE À DROITE -->
+          <div class="center">
+            <img src="asset/img/inde.jpg"
+                 alt="Voyage en Inde"
+                 class="img-fluid"
+                 style="width:65%;max-width:700px">
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <footer>
+    <p class="copyright">© 2025 Dans ma bulle – Tous droits réservés.</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/dans.ma.bulle.49/" target="_blank" rel="noopener">📷 Instagram</a>
+      <a href="https://www.facebook.com/p/DANS-MA-BULLE-61568512797142/" target="_blank" rel="noopener">💜 Facebook</a>
+    </div>
+  </footer>
+
+  <a href="https://prendre-mon-rdv.com/rabut-stephanie-dans-ma-bulle/reflexologue/mauges-sur-loire" class="rdv-button-fixed" target="_blank" rel="noopener">🗓 Prendre RDV</a>
+
+  <script src="asset/js/app.js"></script>
+</body>
+</html>
