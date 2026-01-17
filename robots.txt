@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /
-Sitemap: https://dansmabulle.github.io/reflexologue/sitemap.xml
+Disallow:
 
+Sitemap: https://www.dansmabulle-reflexologue.fr/sitemap.xml
