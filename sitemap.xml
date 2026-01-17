@@ -1,36 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://www.dansmabulle-reflexologue.fr/</loc>
-  </url>
-
-  <url>
-    <loc>https://www.dansmabulle-reflexologue.fr/apropos.html</loc>
-  </url>
-
-  <url>
-    <loc>https://www.dansmabulle-reflexologue.fr/reflexologie.html</loc>
-  </url>
-
-  <url>
-    <loc>https://www.dansmabulle-reflexologue.fr/tarifs.html</loc>
-  </url>
-
-  <url>
-    <loc>https://www.dansmabulle-reflexologue.fr/contact.html</loc>
-  </url>
-
-  <url>
-    <loc>https://www.dansmabulle-reflexologue.fr/faq.html</loc>
-  </url>
-
-  <url>
-    <loc>https://www.dansmabulle-reflexologue.fr/temoignages.html</loc>
-  </url>
-
-  <url>
-    <loc>https://www.dansmabulle-reflexologue.fr/galerie.html</loc>
-  </url>
-
+  <url><loc>https://www.dansmabulle-reflexologue.fr/</loc></url>
+  <url><loc>https://www.dansmabulle-reflexologue.fr/presentation.html</loc></url>
+  <url><loc>https://www.dansmabulle-reflexologue.fr/reflexologie.html</loc></url>
+  <url><loc>https://www.dansmabulle-reflexologue.fr/apropos.html</loc></url>
+  <url><loc>https://www.dansmabulle-reflexologue.fr/tarifs.html</loc></url>
+  <url><loc>https://www.dansmabulle-reflexologue.fr/temoignages.html</loc></url>
+  <url><loc>https://www.dansmabulle-reflexologue.fr/faq.html</loc></url>
+  <url><loc>https://www.dansmabulle-reflexologue.fr/event.html</loc></url>
+  <url><loc>https://www.dansmabulle-reflexologue.fr/galerie.html</loc></url>
+  <url><loc>https://www.dansmabulle-reflexologue.fr/just.html</loc></url>
+  <url><loc>https://www.dansmabulle-reflexologue.fr/contact.html</loc></url>
 </urlset>
