@@ -839,3 +839,33 @@ footer p{
   .hero{padding-top:9.5rem}
   .logo-flottant{width:320px}
 }
+
+/* =========================
+   AJUSTEMENTS IMAGES
+   ========================= */
+
+/* 1) TARIFS : réduire uniquement la 1ère carte */
+.tarif-grid .tarif-item:first-child img{
+  width: 80%;
+  max-width: 240px;
+  margin: 0 auto 1rem;
+}
+
+/* 2) GALERIE : règle globale actuelle = 72% (un peu petite sur certaines)
+      On agrandit seulement certaines étapes */
+
+/* 2. L’accueil (step-2) : agrandir */
+.step-2 .gallery-media img{
+  width: 90%;
+  max-width: 360px;
+}
+
+/* 6. Réflexologie plantaire : agrandir
+   -> ATTENTION : dans ton CSS tu as commenté step-6 = "Réflexologie palmaire".
+   Si dans ton HTML "Réflexologie plantaire" est bien step-6, garde ci-dessous.
+   Sinon remplace .step-6 par .step-4 (ou le bon numéro). */
+.step-6 .gallery-media img{
+  width: 90%;
+  max-width: 360px;
+}
+
